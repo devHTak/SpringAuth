@@ -1,0 +1,12 @@
+1613915550377	Rename type 'BackendApplication'
+1613915553176	Rename type 'BackendApplicationTests'
+1613916248039	Rename type 'AccountInterface'
+1614004856984	Rename type 'BackendApplication'
+1614004858612	Rename type 'BackendApplicationTests'
+1614088303064	Rename type 'BackendApplication'
+1614088310902	Rename type 'BackendApplicationTests'
+1614088937774	Move compilation units
+1614090846519	Rename compilation unit 'JwtRequsetFilter.java'
+1614170629480	Rename type 'BackendApplication'
+1614170630778	Rename type 'BackendApplicationTests'
+1614171720407	Rename package 'com.example.core'
