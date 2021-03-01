@@ -19,3 +19,4 @@ Authentication by using HttpSession or JWT(+ Spring Security).
   - Spring Security + JWT 을 활용한 방법
     (예정)
 
+- 참고: https://github.com/sieunkr/spring-jwt
