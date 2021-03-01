@@ -22,8 +22,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 	
 	private final JwtAuthTokenProvider jwtAuthTokenProvider;
 	private static final String AUTHORIZATION_HEADER = "x-auth-token";
-	
-	
+		
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)throws Exception {
 		// TODO Auto-generated method stub
@@ -41,6 +40,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 	
 	private Optional<String> resolveToken(HttpServletRequest request) {
 		String authToken = request.getHeader(AUTHORIZATION_HEADER);
+		
 		if(StringUtils.hasText(authToken)) {
 			return Optional.of(authToken);
 		}

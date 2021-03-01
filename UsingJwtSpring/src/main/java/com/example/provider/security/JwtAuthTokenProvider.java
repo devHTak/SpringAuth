@@ -28,7 +28,4 @@ public class JwtAuthTokenProvider implements AuthTokenProvider<JwtAuthToken> {
 		// TODO Auto-generated method stub
 		return new JwtAuthToken(token, this.key);
 	}
-	
-	
-
 }

@@ -5,9 +5,14 @@ import java.util.Date;
 import java.util.Optional;
 
 import com.example.core.security.AuthToken;
+import com.example.exception.CustomJwtRuntimeException;
+
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,13 +38,30 @@ public class JwtAuthToken implements AuthToken<Claims>{
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return getData() != null;
 	}
 
 	@Override
 	public Claims getData() {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+		} catch(SecurityException e) {
+			log.info("Invalid JWT signature");
+			throw new CustomJwtRuntimeException();
+		} catch(MalformedJwtException e) {
+			log.info("Invalid JWT token");
+			throw new CustomJwtRuntimeException();
+		} catch(ExpiredJwtException e) {
+			log.info("Expired JWT token");
+			throw new CustomJwtRuntimeException();
+		} catch(UnsupportedJwtException e) {
+			log.info("Unsupported JWT token");
+			throw new CustomJwtRuntimeException();
+		} catch(IllegalArgumentException e) {
+			log.info("Jwt token compact of handler are invalid.");
+			throw new CustomJwtRuntimeException();
+		}
 	}
 	
 	private Optional<String> createJwtAuthToken(String id, String role, Date expiredDate) {
@@ -52,7 +74,4 @@ public class JwtAuthToken implements AuthToken<Claims>{
 		
 		return Optional.of(token);
 	}
-	
-	
-
 }

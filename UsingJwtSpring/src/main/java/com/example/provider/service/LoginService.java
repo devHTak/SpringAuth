@@ -25,10 +25,8 @@ public class LoginService implements LoginUseCase {
 
 	@Override
 	public Optional<MemberDTO> login(String email, String password) {
-		// TODO Auto-generated method stub
-		
-		// TODO Login 연동 -> UserDetailsService
-		
+		// TODO Auto-generated method stub		
+		// TODO Login 연동		
 		MemberDTO member = MemberDTO.builder()
 				.username("test")
 				.email(email)
