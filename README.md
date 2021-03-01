@@ -9,7 +9,7 @@ Authentication by using HttpSession or JWT(+ Spring Security).
   - Spring Security + JWT 을 활용한 방법
     - 소스 경로: UsingJwtSecurity(예정)
   
-- 아래 블로그 URL을 통해 소스 설명을 기재했다.
+- 아래 블로그에 개념 및 소스 설명을 기재했다.
   - Spring Session(HttpSession)을 활용한 방법
     https://devhtak.github.io/spring/2021/02/23/JWT_SpringSession.html
     
